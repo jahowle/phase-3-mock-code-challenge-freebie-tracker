@@ -1,3 +1,8 @@
+Company.destroy_all
+Dev.destroy_all
+Freebie.destroy_all
+
+
 puts "Creating companies..."
 Company.create(name: "Google", founding_year: 1998)
 Company.create(name: "Facebook", founding_year: 2004)
@@ -17,5 +22,16 @@ puts "Creating freebies..."
 # * and a freebie belongs to a company.                         *
 # ***************************************************************
 # Create freebies Here
+items = ['dog', 'cat', 'taco', 'hat', 'car', 'bracelet', 'lamp', 'beer']
+
+7.times do
+    Freebie.create(
+        dev: Dev.all.sample,
+        company: Company.all.sample,
+        item_name: items.sample,
+        value: rand(7..100)
+
+)
+end
 
 puts "Seeding done!"
